@@ -6,15 +6,19 @@
   </head>
   <body>
     <h1>Asteroids</h1>
-    {% for i in key %}
-      <ul>
-        <li><strong>Name: {{ i.name }}</strong></li>
-        <li>Date: {{ i.date }}</li>
-        <li>Diameter Min (km): {{ i.diameter_min }}</li>
-        <li>Diameter Max (km): {{ i.diameter_max }}</li>
-        <li>Hazardous: {{ i.hazardous }}</li>
-        <li>URL: <a href="{{ i.url }}">{{ i.url }}</a></li>
-      </ul>
+    {% for date in dates %}
+        <h2>{{ date }}</h2>
+        {% for asteroid in asteroids %}
+          {% if date is asteroid.date %}
+            <h3>Name: {{ asteroid.name }}</h3>
+            <ul>
+              <li>Diameter Min (km): {{ asteroid.diameter_min }}</li>
+              <li>Diameter Max (km): {{ asteroid.diameter_max }}</li>
+              <li>Hazardous: {{ asteroid.hazardous }}</li>
+              <li>URL: <a href="{{ asteroid.url }}">{{ asteroid.url }}</a></li>
+            </ul>
+          {% endif %}
+        {% endfor %}
     {% endfor %}
   </body>
 </html>
