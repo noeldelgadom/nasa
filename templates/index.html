@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+  </head>
+  <body>
+    <h1>Asteroids</h1>
+    {% for i in key %}
+      <ul>
+        <li><strong>Name: {{ i.name }}</strong></li>
+        <li>Date: {{ i.date }}</li>
+        <li>Diameter Min (km): {{ i.diameter_min }}</li>
+        <li>Diameter Max (km): {{ i.diameter_max }}</li>
+        <li>Hazardous: {{ i.hazardous }}</li>
+        <li>URL: <a href="{{ i.url }}">{{ i.url }}</a></li>
+      </ul>
+    {% endfor %}
+  </body>
+</html>
